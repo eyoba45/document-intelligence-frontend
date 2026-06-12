@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
 
-const API = "http://0.0.0.0:8000/api";
+const API = "https://document-intelligence-owdz.onrender.com/";
 
 function getFileIcon(filename) {
   if (!filename) return "📄";
