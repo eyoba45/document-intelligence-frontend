@@ -91,7 +91,7 @@ export default function App() {
 
     try {
       setProgress(40);
-      const response = await axios.post(`${API}/upload`, formData);
+      const response = await axios.post(`${API}/api/upload`, formData);
       setProgress(100);
       setChunks(response.data.chunks);
       setUploaded(true);
@@ -121,7 +121,7 @@ export default function App() {
     setLoading(true);
 
     try {
-      const response = await axios.post(`${API}/chat`, { question: text });
+      const response = await axios.post(`${API}/api/chat`, { question: text });
       setMessages((prev) => [
         ...prev,
         {
