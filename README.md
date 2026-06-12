@@ -1,70 +1,141 @@
-# Getting Started with Create React App
+# Document Intelligence — Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> Beautiful AI-powered document chat interface. Upload a document and have a conversation with it.
 
-## Available Scripts
+![React](https://img.shields.io/badge/React-18-blue)
+![Axios](https://img.shields.io/badge/Axios-1.x-green)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## What it does
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Drag and drop document upload (PDF, DOCX, TXT)
+- Real-time chat interface with typing indicators
+- Suggestion chips for common questions
+- Document stats (chunks indexed, file size)
+- Fully responsive dark UI
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## Screenshots
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+> Upload a document on the left sidebar, then chat with it on the right.
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Tech Stack
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+| Layer | Technology |
+|---|---|
+| Framework | React 18 |
+| HTTP Client | Axios |
+| Styling | Pure CSS with animations |
+| Build Tool | Create React App |
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## Getting Started
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 1. Clone the repository
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+git clone https://github.com/eyoba45/document-intelligence-frontend.git
+cd document-intelligence-frontend
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 2. Install dependencies
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+npm install
+```
 
-## Learn More
+### 3. Make sure the backend is running
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+This frontend requires the Document Intelligence backend running on port 8000.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+See the backend repo: https://github.com/eyoba45/document-intelligence
 
-### Code Splitting
+### 4. Start the app
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+npm start
+```
 
-### Analyzing the Bundle Size
+The app will open at `http://localhost:3000`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## How to use
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+**Step 1 — Upload a document**
+- Drag and drop a PDF, DOCX, or TXT file onto the upload zone
+- Or click the upload zone to browse your files
+- Click **Analyse Document**
 
-### Advanced Configuration
+**Step 2 — Wait for processing**
+- The document is split into chunks and indexed in the vector database
+- You will see a progress bar while it processes
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+**Step 3 — Ask questions**
+- Type any question in the input box
+- Press **Enter** to send
+- Or click one of the suggestion chips on the sidebar
 
-### Deployment
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Project Structure
 
-### `npm run build` fails to minify
+```
+frontend/
+├── public/
+│   └── index.html
+├── src/
+│   ├── App.js          # Main application component
+│   ├── App.css         # All styles
+│   ├── index.js        # React entry point
+│   └── index.css       # Global styles
+└── package.json
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+## Connecting to the Backend
+
+The API base URL is set in `src/App.js`:
+
+```javascript
+const API = "http://127.0.0.1:8000/api";
+```
+
+If your backend is deployed to a live URL, change this to your deployment URL:
+
+```javascript
+const API = "https://your-backend-url.com/api";
+```
+
+---
+
+## Features
+
+- **Drag and drop** — drag any supported file directly onto the upload zone
+- **File validation** — only accepts PDF, DOCX, and TXT files
+- **Progress bar** — shows document processing progress
+- **Typing indicator** — animated dots while AI is generating a response
+- **Suggestion chips** — quick question shortcuts
+- **Conversation memory** — AI remembers previous messages in the session
+- **Auto scroll** — chat automatically scrolls to the latest message
+- **Keyboard shortcuts** — Enter to send, Shift+Enter for new line
+
+---
+
+## Backend
+
+The FastAPI backend for this project is available at:
+https://github.com/eyoba45/document-intelligence
+
+---
+
+## Author
+
+**Eyob Mulugeta**
+GitHub: [@eyoba45](https://github.com/eyoba45)
