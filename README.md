@@ -110,7 +110,7 @@ const API = "http://127.0.0.1:8000/api";
 If your backend is deployed to a live URL, change this to your deployment URL:
 
 ```javascript
-const API = "https://document-intelligence-ai-project.vercel.app";
+const API = "https://your-backend-url.com/api";
 ```
 
 ---
